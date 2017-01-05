@@ -74,7 +74,7 @@ class ClientServiceThread extends Thread
 			{
 				try 
 				{
-					sendMessage("Please enter 1 for new user ,2 for returning user");	
+					sendMessage("Please enter 1 for new user ,2 for returning user or bye to close");	
 					message = (String)in.readObject();
 					choice = new Integer(message);
 					
@@ -105,11 +105,6 @@ class ClientServiceThread extends Thread
 						list.add(new Account(name, address, aCnum, username, password, balance));
 						
 						sendMessage("Account: "+list);
-						
-						message=(String)in.readObject();
-						
-						if(message.compareToIgnoreCase("bye")==0)
-							sendMessage("bye");
 					}	
 					else if(choice==2)
 					{
@@ -129,63 +124,75 @@ class ClientServiceThread extends Thread
 								flag=true;
 								sendMessage("Welcome " + temp.getName() + "\nAccount details " + temp);
 							}
-							else
+							if(list.get(i).getUsername()!=(message) && list.get(i).getPassword()!=(message2))
 							{
 								sendMessage("Authentication un-succesful");
+							}
+							else
+							{
+								sendMessage("not working");
 							}
 						}
 						if(flag==true)
 						{
-							//second menu for logged-in users
-							sendMessage("Please enter 1 for new details , 2 withdraw or 3 deposit");
-							message=(String)in.readObject();
-							choice2 = new Integer(message);
-							
-							if(choice2==1)
-							{	
+							do
+							{
+								//second menu for logged-in users
+								sendMessage("Please enter 1 for new details , 3 return to main menu");
+								message=(String)in.readObject();
+								choice2 = new Integer(message);
 								
-								sendMessage("Please enter Name");
-								message = (String)in.readObject();
-								String name = message;
-								
-								sendMessage("Please enter Address");
-								message = (String)in.readObject();
-								String address = message;
-								
-								sendMessage("Please enter A/C number");
-								message = (String)in.readObject();
-								int aCnum = new Integer(message);
-								
-								sendMessage("Please enter Username");
-								message = (String)in.readObject();
-								String username = message;
-								
-								sendMessage("Please enter Password");
-								message = (String)in.readObject();
-								String password = message;
-								
-								for(int i=0;i<list.size();i++)
-								{
-									if(list.get(i).equals(temp.getACnum()))
+								if(choice2==1)
+								{	
+									
+									sendMessage("Please enter Name");
+									message = (String)in.readObject();
+									String name = message;
+									
+									sendMessage("Please enter Address");
+									message = (String)in.readObject();
+									String address = message;
+									
+									sendMessage("Please enter A/C number");
+									message = (String)in.readObject();
+									int aCnum = new Integer(message);
+									
+									sendMessage("Please enter Username");
+									message = (String)in.readObject();
+									String username = message;
+									
+									sendMessage("Please enter Password");
+									message = (String)in.readObject();
+									String password = message;
+									
+									for(int i=0;i<list.size();i++)
 									{
-										list.get(i).setName(name);
-										list.get(i).setAddress(address);
-										list.get(i).setACnum(aCnum);
-										list.get(i).setUsername(username);
-										list.get(i).setPassword(password);
-										temp=list.get(i);
+										if(list.get(i).equals(temp.getACnum()))
+										{
+											list.get(i).setName(name);
+											list.get(i).setAddress(address);
+											list.get(i).setACnum(aCnum);
+											list.get(i).setUsername(username);
+											list.get(i).setPassword(password);
+											System.out.println(temp=list.get(i));
+										}
 									}
+									choice2=0;
+									sendMessage("Account updated"+list);
+								
+								}
+								if(choice2==3)
+								{
+									flag=false;
 								}
 								
-								sendMessage("Account details updated"+list);
-							
-								/*message = (String)in.readObject();
-								if(message.compareToIgnoreCase("bye")==0)
-									sendMessage("bye");*/
-							}
-							
+							}while(flag==true);
+							System.out.println("\n\nafter while flag not true");
 						}
+						System.out.println("\n\nafter choice2 condition");
 					}
+					System.out.println("\n\nafter choice condition");
+					
 				}	
 				
 				catch (ClassNotFoundException classnot) 

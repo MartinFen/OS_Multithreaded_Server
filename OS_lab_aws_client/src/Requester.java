@@ -43,197 +43,31 @@ public class Requester
 			{
 				try 
 				{
-					//read message from server (options)
+					//read message from server
 					message = (String) in.readObject();
 					System.out.println(message);
 					//send message to server
 					message = stdin.next();
 					sendMessage(message);
-
-					if(message=="1")
-					{
-						//read message from server (Name)
-						message = (String) in.readObject();
-						System.out.println(message);
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-	
-						//read message from server (Address)
-						message = (String) in.readObject();
-						System.out.println(message);			
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-	
-						//read message from server  (Ac no)
-						message = (String) in.readObject();
-						System.out.println(message);
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-	
-						//read message from server  (Username)
-						message = (String) in.readObject();
-						System.out.println(message);
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-	
-						//read message from server  (Password)
-						message = (String) in.readObject();
-						System.out.println(message);
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-	
-						//read message from server (Confirmation)
-						message = (String) in.readObject();
-						System.out.println(message);
-						
-						System.out.println("Would you like to return to main menu.... Enter yes or no");
-						
-						message = stdin.next();
-						if(message.compareToIgnoreCase("no")==0)
-						{
-							sendMessage("bye");
-							message = (String)in.readObject();
-							System.out.println(message);
-						}
-						else
-						{
-							sendMessage("Continue");
-						}
-					}
-					if(message=="2")
-					{
-						//read message from server (Username)
-						message = (String) in.readObject();
-						System.out.println(message);
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-						
-						//read message from server (Password)
-						message = (String) in.readObject();
-						System.out.println(message);
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-						
-						//message about (authentication)
-						message = (String) in.readObject();
-						System.out.println(message);
-						
-						//read message from server (menu2 choice)
-						message = (String) in.readObject();
-						System.out.println(message);
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-						
-						/**/
-					}
-					if(message=="3")
-					{
-						//read message from server (update name)
-						message = (String) in.readObject();
-						System.out.println(message);
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-						
-						//read message from server (address)
-						message = (String) in.readObject();
-						System.out.println(message);
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-						
-						//read message from server (a/c no)
-						message = (String) in.readObject();
-						System.out.println(message);
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-						
-						//read message from server (username)
-						message = (String) in.readObject();
-						System.out.println(message);
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-						
-						//read message from server (password)
-						message = (String) in.readObject();
-						System.out.println(message);
-						//send message to server
-						message = stdin.next();
-						sendMessage(message);
-						
-						//read message from server (results)
-						message = (String) in.readObject();
-						System.out.println(message);
-						
-						/*System.out.println("Would you like to continue or.... Enter yes or no");
-						
-						message = stdin.next();
-						if(message.compareToIgnoreCase("no")==0)
-						{
-							sendMessage("bye");
-							message = (String)in.readObject();
-						}
-						else if(message.compareToIgnoreCase("yes")==0)
-						{
-							sendMessage("Continue");
-						}*/
-					}
+				
 					
-				}
+					/*System.out.println("Would you like to return to main menu.... Enter yes or no");
 					
-					/*else if(message=="2")
-					{
-						
-						
-					if(message.contains("Authentication succesful"))
-						{
-							
-							System.out.println("Welcome please choose another option"
-										+ "\n1 for change details,"
-										+ "\n2 for Lodgement,"
-										+ "\n3 for Withdrawel,"
-										+ "\n4 for View last ten transactions,"
-										+ "\n5 to exit");
-						}
-						
-							message = stdin.next();
-							sendMessage(message);
-								
-							if(message.compareTo("1")==0){System.out.println("1");message="5";}
-							if(message.compareTo("2")==0){System.out.println("2");message="5";}
-							if(message.compareTo("3")==0){System.out.println("3");message="5";}
-							if(message.compareTo("4")==0){System.out.println("4");message="5";}
-							if(message.compareTo("5")==0)
-							{
-								sendMessage("bye");
-								message = (String)in.readObject();
-								System.out.println(message);
-							}
-								
-						
-							else
-							{
-								System.out.println("sorry returning to main menu try again");
-							}
-					}
-						
-					else if(message.compareTo("5")==0)
+					
+					message = stdin.next();
+					
+					if(message.compareToIgnoreCase("no")==0)
 					{
 						sendMessage("bye");
-						
 						message = (String)in.readObject();
 						System.out.println(message);
+					}
+					else
+					{
+						sendMessage("Continue");
 					}*/
+				}
+					
 				
 				catch (ClassNotFoundException classNot) 
 				{
@@ -281,6 +115,179 @@ public class Requester
 		client.run();
 	}
 }
+
+/*if(message=="1")
+{
+	//read message from server (Name)
+	message = (String) in.readObject();
+	System.out.println(message);
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+
+	//read message from server (Address)
+	message = (String) in.readObject();
+	System.out.println(message);			
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+
+	//read message from server  (Ac no)
+	message = (String) in.readObject();
+	System.out.println(message);
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+
+	//read message from server  (Username)
+	message = (String) in.readObject();
+	System.out.println(message);
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+
+	//read message from server  (Password)
+	message = (String) in.readObject();
+	System.out.println(message);
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+
+	//read message from server (Confirmation)
+	message = (String) in.readObject();
+	System.out.println(message);
+	
+	
+}
+if(message=="2")
+{
+	//read message from server (Username)
+	message = (String) in.readObject();
+	System.out.println(message);
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+	
+	//read message from server (Password)
+	message = (String) in.readObject();
+	System.out.println(message);
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+	
+	//message about (authentication)
+	message = (String) in.readObject();
+	System.out.println(message);
+	
+	//read message from server (menu2 choice)
+	message = (String) in.readObject();
+	System.out.println(message);
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+	
+	
+}
+if(message=="3")
+{
+	//read message from server (update name)
+	message = (String) in.readObject();
+	System.out.println(message);
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+	
+	//read message from server (address)
+	message = (String) in.readObject();
+	System.out.println(message);
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+	
+	//read message from server (a/c no)
+	message = (String) in.readObject();
+	System.out.println(message);
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+	
+	//read message from server (username)
+	message = (String) in.readObject();
+	System.out.println(message);
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+	
+	//read message from server (password)
+	message = (String) in.readObject();
+	System.out.println(message);
+	//send message to server
+	message = stdin.next();
+	sendMessage(message);
+	
+	//read message from server (results)
+	message = (String) in.readObject();
+	System.out.println(message);
+	
+	System.out.println("Would you like to continue or.... Enter yes or no");
+	
+	message = stdin.next();
+	if(message.compareToIgnoreCase("no")==0)
+	{
+		sendMessage("bye");
+		message = (String)in.readObject();
+	}
+	else if(message.compareToIgnoreCase("yes")==0)
+	{
+		sendMessage("Continue");
+	}*/
+
+
+
+
+/*else if(message=="2")
+{
+	
+	
+if(message.contains("Authentication succesful"))
+	{
+		
+		System.out.println("Welcome please choose another option"
+					+ "\n1 for change details,"
+					+ "\n2 for Lodgement,"
+					+ "\n3 for Withdrawel,"
+					+ "\n4 for View last ten transactions,"
+					+ "\n5 to exit");
+	}
+	
+		message = stdin.next();
+		sendMessage(message);
+			
+		if(message.compareTo("1")==0){System.out.println("1");message="5";}
+		if(message.compareTo("2")==0){System.out.println("2");message="5";}
+		if(message.compareTo("3")==0){System.out.println("3");message="5";}
+		if(message.compareTo("4")==0){System.out.println("4");message="5";}
+		if(message.compareTo("5")==0)
+		{
+			sendMessage("bye");
+			message = (String)in.readObject();
+			System.out.println(message);
+		}
+			
+	
+		else
+		{
+			System.out.println("sorry returning to main menu try again");
+		}
+}
+	
+else if(message.compareTo("5")==0)
+{
+	sendMessage("bye");
+	
+	message = (String)in.readObject();
+	System.out.println(message);
+}*/
 
 /*void run() 
 {
