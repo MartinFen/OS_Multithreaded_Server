@@ -1,12 +1,11 @@
 
-public class Account implements accountFeats {
+public class Account {
 
 	private String Name;
 	private String Address;
 	private int ACnum;
 	private String Username;
 	private String Password;
-	private int Credit;
 	private int balance;
 
 	public Account() {
@@ -19,7 +18,6 @@ public class Account implements accountFeats {
 		this.ACnum = ACnum;
 		this.Username = username;
 		this.Password = password;
-		//this.Credit = credit + 1000;//int credit,
 		this.balance=balance;
 	}
 
@@ -43,10 +41,6 @@ public class Account implements accountFeats {
 		return Password;
 	}
 
-	public int getCredit() {
-		return Credit;
-	}
-
 	public void setName(String name) {
 		Name = name;
 	}
@@ -67,10 +61,6 @@ public class Account implements accountFeats {
 		Password = password;
 	}
 
-	public void setCredit(int credit) {
-		Credit = credit;
-	}
-
 	public int getBalance() {
 		return balance;
 	}
@@ -85,26 +75,7 @@ public class Account implements accountFeats {
 				", Address= " + Address + 
 				", ACnum= " + ACnum + 
 				", Username= " + Username + 
-				", Password= " + Password + 
-				", Credit= " + Credit + " ]\n";
-	}
-
-	@Override
-	public int Withdraw(int i) {
-		
-		return i;
-	}
-
-	@Override
-	public int Withdraw() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void AddUser() {
-		// TODO Auto-generated method stub
-		
+				", Password= " + Password + " ]\n";
 	}
 
 }
