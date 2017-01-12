@@ -8,7 +8,7 @@ It is a multi threaded tcp bank system written in java so far the project can:
   - withdraw from the account
   - deposit to the account
    
-  Overall the project is buggy but it should work.
+Overall the project is buggy but it should work.
 
 ### How to use it
 When running on the console of an ide the user should,
