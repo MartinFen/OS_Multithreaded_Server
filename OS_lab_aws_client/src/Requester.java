@@ -9,7 +9,6 @@ public class Requester
 	Socket requestSocket;
 	ObjectOutputStream out;
 	ObjectInputStream in;
-	Account account;
 	String message = "";
 	String userinput;
 	String ipaddress;
@@ -26,10 +25,9 @@ public class Requester
 		try 
 		{
 			// 1. creating a socket to connect to the server
-			//System.out.println("Please Enter your IP Address: ");
-			//ipaddress = stdin.next();//user enters ip
-			
-			ipaddress = "127.0.0.1";//,  "35.166.51.207"
+			System.out.println("Please Enter your IP Address: ");
+			ipaddress = stdin.next();//user enters ip
+			//ipaddress = "127.0.0.1";//"35.166.51.207"
 			requestSocket = new Socket(ipaddress, 2004);
 			System.out.println("Connected to " + ipaddress + " in port 2004");
 			

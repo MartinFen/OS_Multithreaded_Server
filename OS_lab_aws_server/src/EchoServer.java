@@ -48,6 +48,7 @@ class ClientServiceThread extends Thread
 	}
 
 	//Methods--------------------------------------------------------------------------------------------
+ 	/*Method used for message passing*/
 	void sendMessage(String msg) 
 	{
 		try 
@@ -61,53 +62,8 @@ class ClientServiceThread extends Thread
 			ioException.printStackTrace();
 		}
 	}
-	//overriding the run method
-	public void run() 
-	{
-		System.out.println("Accepted Client : ID - " + clientID + " : Address - " + clientSocket.getInetAddress().getHostName());
-		try 
-		{
-			out = new ObjectOutputStream(clientSocket.getOutputStream());
-			out.flush();
-			in = new ObjectInputStream(clientSocket.getInputStream());
-			System.out.println("Accepted Client : ID - " + clientID + " : Address - " + clientSocket.getInetAddress().getHostName());
-
-			do 
-			{
-				try 
-				{	
-					/*Send a message to the client and read back response*/
-					//sendMessage("Please choose an option enter 1 for new user, 2 for returning user, bye to close");
-					sendMessage("Please choose an option enter 1 for new user, 2 for returning user, 3 to deposit, 4 to withdraw or bye to close");
-					message = (String) in.readObject();
-					choice = new Integer(message);
-					
-					UI();/*enter the UI method*/
-					if(flag==true)
-					{
-							do/*do this while flag is set to true*/
-							{
-								UILoggedin();/*enter the logged in UI*/
-								
-							}
-							while(flag==true);
-					}
-				}	
-				
-				catch (ClassNotFoundException classnot) 
-				{
-					System.err.println("Data received in unknown format");
-				}
-
-			} while (!message.equals("bye"));
-			System.out.println(
-					"Ending Client : ID - " + clientID + " : Address - " + clientSocket.getInetAddress().getHostName());
-		} catch (Exception e) 
-		{
-			e.printStackTrace();
-		}
-	}
 	
+	/*Method used for the choices that user send to the server after server sends first message to client*/
 	public void UI() throws ClassNotFoundException, IOException{
 		
 		if(choice==1)
@@ -128,6 +84,7 @@ class ClientServiceThread extends Thread
 		}
 	}
 	
+	/*Method used for adding users*/
 	public void addUser() throws ClassNotFoundException, IOException {
 		
 		sendMessage("Please enter Name");
@@ -162,6 +119,7 @@ class ClientServiceThread extends Thread
 		System.out.println("\n\n"+list);
 	}
 	
+	/*Method used for authenticating users*/
 	public void verifyUser() throws ClassNotFoundException, IOException {
 		
 		sendMessage("Please enter Username");
@@ -191,6 +149,7 @@ class ClientServiceThread extends Thread
 		}
 	}
 	
+	/*Method used for sending a menu and tasks for logged in users*/
 	public void UILoggedin() throws ClassNotFoundException, IOException {
 		
 			//second menu for logged-in users
@@ -215,6 +174,7 @@ class ClientServiceThread extends Thread
 			}
 	}
 	
+	/*Method used for updating users details*/
 	public void updateUser() throws ClassNotFoundException, IOException{
 		
 		sendMessage("Please enter Name");
@@ -262,6 +222,7 @@ class ClientServiceThread extends Thread
 		//System.out.println(temp);
 	}
 	
+	/*Method used for withdrawing from users accounts*/
 	public void Withdraw() throws ClassNotFoundException, IOException{
 		int tempamount=0;
 		sendMessage("How much would you like to withdraw");	
@@ -293,6 +254,7 @@ class ClientServiceThread extends Thread
 		}
 	}
 	
+	/*Method used for depositing to users accounts*/
 	public void Deposit() throws ClassNotFoundException, IOException{
 		int tempamount=0;
 		sendMessage("How much would you like to deposit");	
@@ -314,4 +276,53 @@ class ClientServiceThread extends Thread
 			}
 		}
 	}
+	
+	//overriding the run method
+	public void run() 
+	{
+		System.out.println("Accepted Client : ID - " + clientID + " : Address - " + clientSocket.getInetAddress().getHostName());
+		try 
+		{
+			out = new ObjectOutputStream(clientSocket.getOutputStream());
+			out.flush();
+			in = new ObjectInputStream(clientSocket.getInputStream());
+			System.out.println("Accepted Client : ID - " + clientID + " : Address - " + clientSocket.getInetAddress().getHostName());
+
+			do 
+			{
+				try 
+				{	
+					/*Send a message to the client and read back response*/
+					//sendMessage("Please choose an option enter 1 for new user, 2 for returning user, bye to close");
+					sendMessage("Please choose an option enter 1 for new user, 2 for returning user, 3 to deposit, 4 to withdraw or bye to close");
+					message = (String) in.readObject();
+					choice = new Integer(message);
+					
+					UI();/*enter the UI method*/
+					if(flag==true)
+					{
+							do/*do this while flag is set to true*/
+							{
+								UILoggedin();/*enter the logged in UI*/
+								
+							}
+							while(flag==true);
+					}
+				}	
+				
+				catch (ClassNotFoundException classnot) 
+				{
+					System.err.println("Data received in unknown format");
+				}
+
+			} while (!message.equals("bye"));//do the above while client hasnt sent a messsage bye to server
+			System.out.println(
+					"Ending Client : ID - " + clientID + " : Address - " + clientSocket.getInetAddress().getHostName());
+		} catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	
 }

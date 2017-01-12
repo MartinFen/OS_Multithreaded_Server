@@ -1,13 +1,13 @@
-
+/*This class contains the access or info that will be used to hold user info in the program*/
 public class Account {
-
+	//Variables------------------------------------------------------------------------------------
 	private String Name;
 	private String Address;
 	private int ACnum;
 	private String Username;
 	private String Password;
 	private int balance;
-
+	//Constructors------------------------------------------------------------------------------------
 	public Account() {
 
 	}
@@ -21,6 +21,7 @@ public class Account {
 		this.balance=balance;
 	}
 
+	//Accessors------------------------------------------------------------------------------------
 	public String getName() {
 		return Name;
 	}
@@ -68,7 +69,8 @@ public class Account {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
-
+	
+	//Methods------------------------------------------------------------------------------------
 	@Override
 	public String toString() {
 		return "[ Name= " + Name + 
